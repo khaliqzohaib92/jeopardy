@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { receiveCategoriesCluesCount } from '../../actions/splash/splash_action';
 
 import './stylesheet/splash.css';
-import { ROUTE_GAME } from '../../utils/config/routes';
+import { ROUTE_GAME } from '../../utils/routes';
 
 const Splash = props => {
     const [categoriesCount, setCategoriesCount] = useState(props.categoriesCount);
@@ -19,6 +19,7 @@ const Splash = props => {
                 case 'clues':
                     setCluesCount(parseInt(e.target.value));
                     break;
+                default:
             }
         }
     }
@@ -34,7 +35,7 @@ const Splash = props => {
 
     return (
         <div className="splash-container">
-            <img className="splash-logo" src='/assets/jeopardy_logo.png'/>
+            <img className="splash-logo" src='/assets/jeopardy_logo.png' alt="Jeopardy Logo"/>
             <div className="splash-category-clue-number-selector">
                 <div className="splash-categories">
                     <span className="splash-categories-label">Categories: </span>
@@ -51,7 +52,7 @@ const Splash = props => {
                     className="splash-number-input" 
                     type="number" 
                     value={cluesCount} 
-                    max={50}
+                    max={5}
                     onChange={onChangeCount("clues")}/>
                 </div>
             </div>

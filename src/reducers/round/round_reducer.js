@@ -1,4 +1,4 @@
-import { UPDATE_ROUND } from "../../actions/round/round";
+import { UPDATE_ROUND } from "../../actions/round/round_action";
 
 const defaultRound = 1;
 

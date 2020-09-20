@@ -1,3 +1,5 @@
+export const BASE_URL = "http://jservice.io";
+
 export const CATEGORIES_COUNT = 6;
 export const CLUES_COUNT = 5;
 
