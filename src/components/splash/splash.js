@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { receiveCategoriesCluesCount } from '../../actions/splash/splash_action';
 
 import './stylesheet/splash.css';
-import { ROUTE_GAME } from '../../utils/config/routes';
+import { ROUTE_GAME } from '../../utils/routes';
 
 const Splash = props => {
     const [categoriesCount, setCategoriesCount] = useState(props.categoriesCount);
