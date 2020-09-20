@@ -1,0 +1,24 @@
+.header {
+    background:  #071277;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.header-title {
+    font-family: Jeopardy-Bold;
+    color: white;
+    flex: 0.99;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.header-restart-icon {
+    font-size: 1.5em;
+    color: white;
+    cursor: pointer;
+}
+
+.header-restart-icon:hover {
+    color: rgba(255, 255, 255, 0.562)
+}

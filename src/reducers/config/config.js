@@ -1,5 +1,5 @@
 const { RECEIVE_CATEGORIES_CLUES_COUNT } = require("../../actions/splash/splash_action");
-const { CATEGORIES_COUNT, CLUES_COUNT } = require("../../utils/defaults");
+const { CATEGORIES_COUNT, CLUES_COUNT } = require("../../utils/constants");
 
 const defaultConfig = {
     categoriesCount: CATEGORIES_COUNT,
