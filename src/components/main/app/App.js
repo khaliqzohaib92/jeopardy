@@ -11,7 +11,6 @@ function App() {
         <Splash/>
       </Route>
       <Route path={ROUTE_GAME}>
-        
       </Route>
     </Switch>
   );

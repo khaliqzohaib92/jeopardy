@@ -1,9 +1,11 @@
 import React, { PropTypes } from 'react';
 
+import './stylesheet/splash.css';
+
 const Splash = props => {
     return (
-        <div>
-            Splash
+        <div className="splash-container">
+            <img className="splash-logo" src='/assets/jeopardy_logo.png'/>
         </div>
     );
 };
