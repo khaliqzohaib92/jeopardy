@@ -1,10 +1,7 @@
 import { RECEIVE_CATEGORIES } from "../../actions/board/board_action";
 
-const { combineReducers } = require("redux")
-
 const defaultBoard = {
-    categories: {},
-    clues: {}
+    categories: []
 };
 
 const boardReducer = (state = defaultBoard, action) => {

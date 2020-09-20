@@ -21,12 +21,11 @@ Board.propTypes = {
     categoriesCount: PropTypes.number.isRequired,
     cluesCount: PropTypes.number.isRequired,
     round: PropTypes.number.isRequired,
-    categories: PropTypes.object.isRequired,
+    categories: PropTypes.array.isRequired,
 };
 
 
 const mSTP = (state) => {
-    debugger
     return {
         categoriesCount: state.config.categoriesCount,
         cluesCount: state.config.cluesCount,

@@ -51,7 +51,7 @@ const Splash = props => {
                     className="splash-number-input" 
                     type="number" 
                     value={cluesCount} 
-                    max={50}
+                    max={5}
                     onChange={onChangeCount("clues")}/>
                 </div>
             </div>
