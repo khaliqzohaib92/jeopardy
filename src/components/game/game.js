@@ -1,9 +1,18 @@
-import React, { PropTypes } from 'react';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import Header from '../header/header';
+
+import './stylesheet/game.css' 
+
 
 const Game = props => {
+    const [key, setKey] = useState(0)
+    function reset(e){
+        setKey((prevKey) => prevKey + 1);
+    }
     return (
-        <div>
-            Game
+        <div key={key}>
+           <Header title={"Jeopardy"} reset={reset}/> 
         </div>
     );
 };

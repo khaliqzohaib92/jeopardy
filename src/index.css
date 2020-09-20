@@ -20,6 +20,7 @@ code {
 }
 
 
+/* Universal CSS */
 .button {
   background: #071277;
   color:white;
@@ -31,4 +32,14 @@ code {
 
 .button:hover {
   background: #071277c9;
+}
+
+@font-face {
+  font-family: 'Jeopardy-Bold';
+  src: local('Jeopardy-Bold'), url('/fonts/gyparody_bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Jeopardy-Light';
+  src: local('Jeopardy-Light'), url('/fonts/gyparody_light.ttf') format('truetype');
 }
