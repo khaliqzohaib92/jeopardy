@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { getCategories } from '../../actions/board/board_action';
+import Column from './column/column';
+import './stylesheet/board.css';
 
 const Board = props => {
 
@@ -11,8 +13,11 @@ const Board = props => {
     }, [props.round]);
 
     return (
-        <div>
-            {JSON.stringify(props.categories)}
+        <div className="board">
+            <Column 
+            categories={props.categories} 
+            round={props.round}
+            clueCount={props.cluesCount} />
         </div>
     );
 };

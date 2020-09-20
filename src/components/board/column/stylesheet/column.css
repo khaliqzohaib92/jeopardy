@@ -1,0 +1,12 @@
+.column-container {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+}
+
+.column-values {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    list-style: none;
+}

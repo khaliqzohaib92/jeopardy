@@ -43,3 +43,8 @@ code {
   font-family: 'Jeopardy-Light';
   src: local('Jeopardy-Light'), url('/fonts/gyparody_light.ttf') format('truetype');
 }
+
+ul {
+  padding: 0;
+  margin: 0;
+}
