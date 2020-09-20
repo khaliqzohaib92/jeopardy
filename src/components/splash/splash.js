@@ -1,27 +1,35 @@
-import React, { PropTypes, useState } from 'react';
+import React, { useState } from 'react';
 import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { receiveCategoriesCluesCount } from '../../actions/splash/splash_action';
 
 import './stylesheet/splash.css';
+import { ROUTE_GAME } from '../../utils/config/routes';
 
 const Splash = props => {
-    const [categoriesCount, setCategoriesCount] = useState(6);
-    const [cluesCount, setCluesCount] = useState(5);
+    const [categoriesCount, setCategoriesCount] = useState(props.categoriesCount);
+    const [cluesCount, setCluesCount] = useState(props.cluesCount);
 
     function onChangeCount(type) {
         return e => {
             switch(type){
                 case 'categories':
-                    setCategoriesCount(e.target.value);
+                    setCategoriesCount(parseInt(e.target.value));
                     break;
                 case 'clues':
-                    setCluesCount(e.target.value);
+                    setCluesCount(parseInt(e.target.value));
                     break;
             }
         }
     }
 
     function onClickLetsBegin(e) {
-        
+        // update state
+        props.receiveCategoriesCluesCount(categoriesCount, cluesCount);
+
+        // redirect to game component
+        props.history.push(ROUTE_GAME);
+
     }
 
     return (
@@ -55,8 +63,18 @@ const Splash = props => {
     );
 };
 
-Splash.propTypes = {
-    
-};
+const mSTP = (state) => {
+    return {
+        categoriesCount: state.config.categoriesCount,
+        cluesCount: state.config.cluesCount,
+    }
+}
 
-export default withRouter(Splash);
+const mDTP = (dispatch) => {
+    return {
+        receiveCategoriesCluesCount: (categoriesCount, cluesCount) => 
+        dispatch(receiveCategoriesCluesCount(categoriesCount, cluesCount))
+    }
+}
+
+export default withRouter(connect(mSTP, mDTP)(Splash));
