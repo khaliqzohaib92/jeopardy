@@ -2,10 +2,10 @@ import { RECEIVE_CATEGORIES } from "../../actions/board/board_action";
 
 const { combineReducers } = require("redux")
 
-const defaultBoard = combineReducers({
+const defaultBoard = {
     categories: {},
     clues: {}
-});
+};
 
 const boardReducer = (state = defaultBoard, action) => {
     Object.freeze(state);

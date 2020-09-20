@@ -8,7 +8,8 @@ const Board = props => {
 
     useEffect(()=>{
         props.getCategories(props.categoriesCount, 0);
-    }, props.round)
+    }, [props.round]);
+
     return (
         <div>
             {JSON.stringify(props.categories)}
@@ -25,9 +26,10 @@ Board.propTypes = {
 
 
 const mSTP = (state) => {
+    debugger
     return {
-        categoriesCount: state.categoriesCount,
-        cluesCount: state.cluesCount,
+        categoriesCount: state.config.categoriesCount,
+        cluesCount: state.config.cluesCount,
         round: state.round,
         categories: state.board.categories,
     }
@@ -35,10 +37,9 @@ const mSTP = (state) => {
 
 const mDTP = (dispatch) => {
     return {
-        getCategories: (categoriesCount, offset) 
-        => dispatch(getCategories(categoriesCount, offset)),
+        getCategories: (categoriesCount, offset) => dispatch(getCategories(categoriesCount, offset)),
     }
 }
 
 
-export default connect(mSTP)(Board);
+export default connect(mSTP, mDTP)(Board);
