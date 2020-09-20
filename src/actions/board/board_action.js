@@ -8,7 +8,7 @@ const receiveCategories = (categories) => {
     };
 }
 
-const fetchCategories = (count, offset) => dispatch => {
+export const getCategories = (count, offset) => dispatch => {
     return fetchCategories(count, offset)
     .then(categories => dispatch(receiveCategories(categories)))
 }
