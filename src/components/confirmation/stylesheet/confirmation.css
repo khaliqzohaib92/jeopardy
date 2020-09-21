@@ -21,6 +21,12 @@
     align-items: flex-end;
 }
 
+@media only screen and (max-width: 800px) {
+    .confirmation {
+        width: 70%;
+    }
+  }
+
 .confirmation-header {
     display: flex;
     align-items: center;
