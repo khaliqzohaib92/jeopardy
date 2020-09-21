@@ -9,7 +9,6 @@ const defaultBoard = {
 const boardReducer = (state = defaultBoard, action) => {
     Object.freeze(state);
     let nextState = Object.assign({}, state);
-
     switch(action.type){
         case RECEIVE_CATEGORIES:
             nextState.categories = action.categories;

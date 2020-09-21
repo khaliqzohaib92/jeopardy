@@ -1,13 +1,19 @@
 import { UPDATE_ROUND } from "../../actions/round/round_action";
 
-const defaultRound = 1;
+const defaultRound = {
+    number: 1
+};
 
 const roundReducer = (state = defaultRound, action) => {
+    Object.freeze(state);
+
     switch(action.type) {
         case UPDATE_ROUND:
-            return action.round;
+            let nextState = Object.assign({}, state);
+            nextState.number = action.round;
+            return nextState;
         default:
-            return defaultRound;
+            return state;
     }
 }
 

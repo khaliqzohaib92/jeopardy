@@ -33,7 +33,7 @@ const Clue = props => {
                     </label>
                </div>
                <p className="clue-aq">{!toggleQA ? props.clue.question : props.clue.answer}</p>
-               <button className="button clue-done" onClick={() => props.onCloseClick(false)}>Done</button>
+               <button className="button clue-done" onClick={props.onCloseClick}>Done</button>
            </div>
         </div>
     );

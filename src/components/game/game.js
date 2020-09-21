@@ -28,7 +28,7 @@ Game.propTypes = {
 
 const mSTP = (state) => {
     return {
-        round: state.round,
+        round: state.round.number,
     }
 }
 

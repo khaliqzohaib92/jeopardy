@@ -12,18 +12,21 @@ const Board = props => {
 
     useEffect(()=>{
         props.getCategories(props.categoriesCount, 0);
+
         setddPoint(()=>{
             let row = Math.floor(Math.random() * (props.cluesCount-1)) + 1
             let column = Math.floor(Math.random() * (props.categoriesCount-1)) + 1;
             console.log([row,column]);
             return [row, column];
-        })
+        });
+        
     }, [props.round]);
 
     return (
         <div className="board">
           {
              ddPoint && <Column 
+                key={props.round}
                 categories={props.categories} 
                 round={props.round}
                 clueCount={props.cluesCount}
@@ -45,7 +48,7 @@ const mSTP = (state) => {
     return {
         categoriesCount: state.config.categoriesCount,
         cluesCount: state.config.cluesCount,
-        round: state.round,
+        round: state.round.number,
         categories: state.board.categories,
     }
 }

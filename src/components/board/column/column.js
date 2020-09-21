@@ -6,6 +6,8 @@ import Value from './value/value';
 import Clue from '../../clue/clue';
 import './stylesheet/column.css';
 import { VALUES } from '../../../utils/constants';
+import { receiveUpdateRound } from '../../../actions/round/round_action';
+import { connect } from 'react-redux';
 
 const Column = (props) => {
 
@@ -56,6 +58,16 @@ const Column = (props) => {
         return views;
     }
 
+    function onCloseClueClick(e) {
+        setShowClue(false);
+
+        const totalCell = props.categories.length * props.clueCount;
+        console.log(`${totalCell} === ${Object.keys(viewedClues).length}`)
+        if(totalCell === Object.keys(viewedClues).length){
+            props.receiveUpdateRound(props.round + 1);
+        }
+    }
+
     return (
         <>
             <ul className="column-container">
@@ -80,7 +92,7 @@ const Column = (props) => {
                 categoryId={categoryId} 
                 value={clueValue} 
                 isDDPoint={isDDPoint}
-                onCloseClick={setShowClue}/>
+                onCloseClick={onCloseClueClick}/>
             }
         </>
     );
@@ -91,6 +103,13 @@ Column.propTypes = {
     round: PropTypes.number.isRequired,
     clueCount: PropTypes.number.isRequired,
     DDPoint: PropTypes.array.isRequired,
+    receiveUpdateRound: PropTypes.func.isRequired,
 };
 
-export default Column;
+const mDTP = dispatch => {
+    return {
+        receiveUpdateRound: (round) => dispatch(receiveUpdateRound(round)),
+    }
+}
+
+export default connect(null, mDTP)(Column);
