@@ -8,3 +8,5 @@ export const ROUND_TITLE = {
     2: "Double Jeopardy",
     3: "Final Jeopardy",
 };
+
+export const VALUES = [200, 400, 600, 800, 1000];

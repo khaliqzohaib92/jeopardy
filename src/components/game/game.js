@@ -15,7 +15,7 @@ const Game = props => {
     }
 
     return (
-        <div key={key}>
+        <div className="game" key={key}>
            <Header title={ROUND_TITLE[props.round]} reset={reset}/> 
            <Board />
         </div>
@@ -28,7 +28,7 @@ Game.propTypes = {
 
 const mSTP = (state) => {
     return {
-        round: state.round,
+        round: state.round.number,
     }
 }
 

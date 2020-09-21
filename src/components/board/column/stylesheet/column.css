@@ -1,0 +1,35 @@
+.column-container {
+    display: flex;
+    list-style: none;
+}
+
+.column {
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.column-values {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    list-style: none;
+}
+
+.column-value {
+    width: 100%;
+    margin-top: 2px;
+}
+
+.column-value-enabled {
+    background: #071277;
+    cursor: pointer;
+}
+
+.column-value-disabled {
+    background: #0712779c;
+    text-decoration:line-through
+}
+
+.column-value-enabled:hover {
+    background: #071277c9;
+}

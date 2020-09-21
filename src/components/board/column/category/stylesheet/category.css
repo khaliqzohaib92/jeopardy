@@ -1,0 +1,16 @@
+.category {
+    background-color: #071277;
+    margin-top: 15px;
+    padding: 5px 5px;
+    margin-top: 2px;
+    color: white;
+    font-family: inherit;
+    font-weight: bold;
+    min-height: 40%;
+    min-width: 100px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+}
