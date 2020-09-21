@@ -40,9 +40,9 @@ const Clue = props => {
 };
 
 Clue.propTypes = {
-    categoryId: PropTypes.number.isRequired,
-    value: PropTypes.number.isRequired,
-    isDDPoint: PropTypes.bool.isRequired,
+    categoryId: PropTypes.number,
+    value: PropTypes.number,
+    isDDPoint: PropTypes.bool,
     onCloseClick: PropTypes.func.isRequired,
     getClue: PropTypes.func.isRequired,
     clue: PropTypes.object.isRequired,

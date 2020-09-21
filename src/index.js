@@ -5,7 +5,6 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import Root from './components/main/root/root';
 
-
 ReactDOM.render(
   <React.StrictMode>
     <Root />
