@@ -5,6 +5,10 @@
     align-items: center;
 }
 
+.home {
+    margin-left: 5px;
+}
+
 .header-title {
     font-family: Jeopardy-Bold;
     color: white;
