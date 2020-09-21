@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import './stylesheet/value.css'
+
 const Value = props => {
     return (
-        <div>
-        {props.value}
-        </div>
+        <span className="value">
+            ${props.value}
+        </span>
     );
 };
 

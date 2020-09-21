@@ -5,9 +5,9 @@ import './stylesheet/category.css';
 
 const Category = props => {
     return (
-        <div className="category">
+        <span className="category">
             {props.category.title}
-        </div>
+        </span>
     );
 };
 

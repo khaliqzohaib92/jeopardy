@@ -1,7 +1,11 @@
 .column-container {
     display: flex;
     list-style: none;
-    justify-content: center;
+}
+
+.column {
+    margin-left: 2px;
+    margin-right: 2px;
 }
 
 .column-values {
@@ -9,4 +13,15 @@
     flex-direction: column;
     text-align: center;
     list-style: none;
+}
+
+.column-value {
+    width: 100%;
+    background: #071277;
+    margin-top: 2px;
+    cursor: pointer;
+}
+
+.column-value:hover {
+    background: #071277c9;
 }

@@ -11,10 +11,10 @@ const Column = (props) => {
     function getValueViews(clueCount) {
         let views = [];
 
-        for(let i = 0; i < clueCount; i++){
+        for(let row = 0; row < clueCount; row++){
             views.push(
-                <li key={i}>
-                    <Value key={i} value={(VALUES[i]) * props.round}/>
+                <li key={row} className="column-value">
+                    <Value key={row} value={(VALUES[row]) * props.round}/>
                 </li>
             )
         }
@@ -25,11 +25,11 @@ const Column = (props) => {
     return (
         <ul className="column-container">
             {
-                props.categories.map((category, idx) => {
+                props.categories.map((category, column) => {
                     return (
-                        <li key={idx} className="column">
+                        <li key={column} className="column">
                             <Category key={category.id} category={category}/>
-                            <ul className="column-values" key={idx}>
+                            <ul className="column-values" key={column}>
                             {
                                 getValueViews(props.clueCount)
                             }
