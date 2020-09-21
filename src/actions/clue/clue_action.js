@@ -11,5 +11,5 @@ export const receiveClue = (clue) => {
 
 export const getClue = (categoryId, value) => dispatch => {
     return fetchClue(categoryId, value)
-    .then(res => receiveClue(res.data));
+    .then(res => dispatch(receiveClue(res.data)));
 }

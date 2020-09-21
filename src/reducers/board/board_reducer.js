@@ -8,15 +8,14 @@ const defaultBoard = {
 
 const boardReducer = (state = defaultBoard, action) => {
     Object.freeze(state);
+    let nextState = Object.assign({}, state);
 
     switch(action.type){
         case RECEIVE_CATEGORIES:
-            let nextState = Object.assign({}, state);
             nextState.categories = action.categories;
             return nextState;
         case RECEIVE_CLUE:
-            nextState = Object.assign({}, state);
-            nextState.clue = action.clue;
+            nextState.clue = action.clue[0];
             return nextState;
         default:
             return state;

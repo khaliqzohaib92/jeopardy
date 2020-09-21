@@ -7,24 +7,33 @@ import { connect } from 'react-redux';
 
 const Clue = props => {
 
+    const [toggleQA, setToggleQA] = useState(false);
+
     useEffect(()=>{
         props.getClue(props.categoryId, props.value);
     }, [props.categoryId, props.value]);
 
 
+    function onCheckChange(e) {
+        setToggleQA(!toggleQA);
+    }
+
     return (
+       !props.clue ? <></> :
         <div className="clue-container">
            <div className="clue">
-               <div>
-                    <h3>
+               <div className="clue-header">
+                    <h3 className="clue-title">
                         {props.isDDPoint ? "Daily Double |": ""} 
-                        Question
+                        {!toggleQA ? " Question" : " Answer"}
                     </h3>
-                    <label className="switch">
-                        <input type="checkbox"/>
+                    <label className="switch clue-switch">
+                        <input type="checkbox" onClick={onCheckChange}/>
                         <span className="slider round"></span>
                     </label>
                </div>
+               <p className="clue-aq">{!toggleQA ? props.clue.question : props.clue.answer}</p>
+               <button className="button clue-done" onClick={() => props.onCloseClick(false)}>Done</button>
            </div>
         </div>
     );
