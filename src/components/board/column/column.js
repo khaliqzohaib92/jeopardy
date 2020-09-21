@@ -29,7 +29,7 @@ const Column = (props) => {
         }
     }
 
-    function isPointViewed (point) {
+    function isClueViewed (point) {
         return point in viewedClues;
     }
 
@@ -42,8 +42,8 @@ const Column = (props) => {
             views.push(
                 <li 
                 key={row} 
-                className={`column-value ${isPointViewed(point) ? "column-value-disabled" : "column-value-enabled"}`} 
-                onClick={!isPointViewed(point) ? openClue(categoryId, clueValue, point) : ()=>{}}
+                className={`column-value ${isClueViewed(point) ? "column-value-disabled" : "column-value-enabled"}`} 
+                onClick={!isClueViewed(point) ? openClue(categoryId, clueValue, point) : ()=>{}}
                 >
                     <Value 
                     key={row} 
@@ -76,7 +76,11 @@ const Column = (props) => {
             </ul>
             {
                 (showClue && categoryId && clueValue) && 
-                <Clue categoryId={categoryId} value={clueValue} isDDPoint={isDDPoint}/>
+                <Clue 
+                categoryId={categoryId} 
+                value={clueValue} 
+                isDDPoint={isDDPoint}
+                onCloseClick={setShowClue}/>
             }
         </>
     );
