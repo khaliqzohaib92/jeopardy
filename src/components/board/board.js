@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -8,16 +8,27 @@ import './stylesheet/board.css';
 
 const Board = props => {
 
+    const [ddPoint, setddPoint] = useState(null);
+
     useEffect(()=>{
         props.getCategories(props.categoriesCount, 0);
+        setddPoint(()=>{
+            let row = Math.floor(Math.random() * (props.cluesCount-1)) + 1
+            let column = Math.floor(Math.random() * (props.categoriesCount-1)) + 1;
+            console.log([row,column]);
+            return [row, column];
+        })
     }, [props.round]);
 
     return (
         <div className="board">
-            <Column 
-            categories={props.categories} 
-            round={props.round}
-            clueCount={props.cluesCount} />
+          {
+             ddPoint && <Column 
+                categories={props.categories} 
+                round={props.round}
+                clueCount={props.cluesCount}
+                DDPoint={ddPoint} />
+          }  
         </div>
     );
 };
