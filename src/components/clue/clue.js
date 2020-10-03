@@ -11,6 +11,8 @@ const Clue = props => {
 
     useEffect(()=>{
         props.getClue(props.categoryId, props.value);
+
+        
     }, [props.categoryId, props.value]);
 
 
