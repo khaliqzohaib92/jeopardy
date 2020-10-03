@@ -14,7 +14,7 @@ const boardReducer = (state = defaultBoard, action) => {
             nextState.categories = action.categories;
             return nextState;
         case RECEIVE_CLUE:
-            nextState.clue = action.clue[0];
+            nextState.clue = action.clue ? action.clue[0] : {};
             return nextState;
         default:
             return state;

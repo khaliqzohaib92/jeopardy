@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import './stylesheet/clue.css';
-import { getClue } from '../../actions/clue/clue_action'
+import { getClue, receiveClue } from '../../actions/clue/clue_action'
 import { connect } from 'react-redux';
 
 const Clue = props => {
@@ -11,8 +11,6 @@ const Clue = props => {
 
     useEffect(()=>{
         props.getClue(props.categoryId, props.value);
-
-        
     }, [props.categoryId, props.value]);
 
 
@@ -21,8 +19,7 @@ const Clue = props => {
     }
 
     return (
-       !props.clue ? <></> :
-        <div className="clue-container">
+        !props.clue ? null : <div className="clue-container">
            <div className="clue">
                <div className="clue-header">
                     <h3 className="clue-title">
@@ -35,7 +32,10 @@ const Clue = props => {
                     </label>
                </div>
                <p className="clue-aq">{!toggleQA ? props.clue.question : props.clue.answer}</p>
-               <button className="button clue-done" onClick={props.onCloseClick}>Done</button>
+               <button className="button clue-done" onClick={() => {
+                   props.receiveClue({});
+                   props.onCloseClick();
+               }}>Done</button>
            </div>
         </div>
     );
@@ -47,7 +47,7 @@ Clue.propTypes = {
     isDDPoint: PropTypes.bool,
     onCloseClick: PropTypes.func.isRequired,
     getClue: PropTypes.func.isRequired,
-    clue: PropTypes.object.isRequired,
+    clue: PropTypes.object,
 };
 
 const mSTP = (state) => {
@@ -59,6 +59,7 @@ const mSTP = (state) => {
 const mDTP = (dispatch) => {
     return {
         getClue: (categoryId, value) => dispatch(getClue(categoryId, value)),
+        receiveClue: (clue) => dispatch(receiveClue(clue)),
     }
 }
 

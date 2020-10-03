@@ -62,7 +62,6 @@ const Column = (props) => {
         setShowClue(false);
 
         const totalCell = props.categories.length * props.clueCount;
-        console.log(`${totalCell} === ${Object.keys(viewedClues).length}`)
         if(totalCell === Object.keys(viewedClues).length){
             props.receiveUpdateRound(props.round + 1);
         }

@@ -15,7 +15,6 @@ const Board = props => {
 
     useEffect(()=>{
         let val = getUpdate();
-        console.log(val* props.round);
         props.getCategories(props.categoriesCount, val* props.round);
 
         updateVal(++val);
@@ -23,7 +22,6 @@ const Board = props => {
         setddPoint(()=>{
             let row = Math.floor(Math.random() * (props.cluesCount-1)) + 0
             let column = Math.floor(Math.random() * (props.categoriesCount-1)) + 0;
-            console.log([row,column]);
             return [row, column];
         });
         
